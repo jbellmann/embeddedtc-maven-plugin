@@ -522,10 +522,14 @@ public class Runner {
 		}
 
 		tomcat.getServer().await();
-
+		System.err.println("SHUTDOWN_COMMAND_RECEIVED");
 		if (useShutdownPort) {
+		    System.err.println("STOPPING_SERVER");
 			tomcat.stop();
 		}
+		Thread.sleep(3000);
+		System.err.println("EXIT SYSTEM");
+		System.exit(0);
 	}
 
 	private static void stopTc(StopOptions stopOptions) throws URISyntaxException, IOException {
